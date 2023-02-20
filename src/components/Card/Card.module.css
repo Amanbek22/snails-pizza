@@ -1,0 +1,47 @@
+.wrapper {
+    width: calc(25% - 30px);
+    margin: 15px;
+}
+
+.imageWrapper {
+    margin: 10px;
+    width: calc(100% - 20px);
+}
+
+.imageWrapper > img {
+    width: 100%;
+}
+
+.title {
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.description {
+    font-size: 14px;
+    color: rgb(92, 99, 112);
+    line-height: 20px;
+    margin-bottom: 15px;
+
+    overflow: hidden;
+    width:100%;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+/* 
+    {
+        id: 'id',
+        image: 'link',
+        title: 'title',
+        description: 'description',
+        price: 500,
+        type: 'pizza'
+    }
+*/
