@@ -3,6 +3,12 @@
     justify-content: space-between;
     padding-top: 15px;
     padding-bottom: 15px;
+
+    position: sticky;
+    top: 0;
+    background: #fff;
+    box-shadow: 0 0 3px 0;
+    z-index: 9;
 }
 
 .wrapper a {

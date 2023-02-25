@@ -1,0 +1,15 @@
+.addBlock {
+  width: calc(25% - 30px);
+  margin: 15px;
+  border: 1px solid rgb(254, 188, 8);
+  padding: 15px;
+  text-align: center;
+  border-radius: 8px;
+  text-decoration: none;
+  color: black;
+}
+
+.addBlock > img {
+    width: 100%;
+    margin-bottom: 25px;
+}

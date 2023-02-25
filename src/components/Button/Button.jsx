@@ -3,10 +3,10 @@ import css from "./Button.module.css";
 
 // props = { title: string; variant: string }
 // variant = "full" || "empty"
-function Button(props) {
+function Button({ title, variant, ...props }) {
   return (
-    <button className={props.variant === "empty" ? css.empty : css.full}>
-      {props.title}
+    <button {...props} className={variant === "empty" ? css.empty : css.full}>
+      {title}
     </button>
   );
 }
