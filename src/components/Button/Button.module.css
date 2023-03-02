@@ -17,3 +17,8 @@
     font-size: 16px;
     cursor: pointer;
 }
+
+.full:disabled, .empty:disabled {
+    background: rgb(123, 123, 123);
+    cursor: not-allowed;
+}

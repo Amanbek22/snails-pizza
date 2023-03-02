@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Card from "../../components/Card/Card";
 import Title from "../../components/Title/Title";
 import css from "./HomePage.module.css";
-import axios from "axios";
+import Api from "../../api/Api";
 
 function HomePage() {
   const [pizzas, setPizzas] = useState([]);
@@ -10,7 +10,7 @@ function HomePage() {
 
   const getPizzas = async () => {
     // const res = await fetch('https://605b21f027f0050017c063b9.mockapi.io/api/v3/pizza')
-    const res = await axios.get('https://605b21f027f0050017c063b9.mockapi.io/api/v3/pizza')
+    const res = await Api.getPizzas()
     if(res.status === 200) {
       setPizzas(res.data)
     } else {

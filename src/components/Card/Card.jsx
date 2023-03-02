@@ -1,14 +1,24 @@
-import axios from "axios";
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import Api from "../../api/Api";
+import { incremented } from "../../redux/slices/mainSlice";
 import Button from "../Button/Button";
 import css from "./Card.module.css";
 
 function Card({ price, id, name, description, image, isAdmin = false }) {
+  const value = useSelector((state) => state.main.value);
+
+  const dispatch = useDispatch();
+
+  const testRedux = () => {
+    dispatch(incremented())
+  }
+
   const deletePizza = () => {
     const res = window.confirm('Вы действмтельно хотите удалить ' + name + '?')
     console.log(res);
     if(res) {
-      axios.delete('https://605b21f027f0050017c063b9.mockapi.io/api/v3/pizza/' + id)
+      Api.deletePizza(id)
         .then(() => {
           window.location.reload()
         })
@@ -24,11 +34,11 @@ function Card({ price, id, name, description, image, isAdmin = false }) {
         {description}
       </p>
       <div className={css.footer}>
-        <div>Price: {price}</div>
+        <div>Price: {price} {value} </div>
         {isAdmin ? (
           <Button onClick={deletePizza} title={"Удалить"} variant="empty" />
         ) : (
-          <Button title={"В корзину"} variant="empty" />
+          <Button onClick={testRedux} title={"В корзину"} variant="empty" />
         )}
       </div>
     </div>

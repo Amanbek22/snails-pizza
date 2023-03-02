@@ -1,7 +1,10 @@
 import { useEffect } from "react";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
-function PublicRoute({ auth, children }) {
+function PublicRoute({ children }) {
+  const auth = useSelector((state) => state.auth.isAuth)
+
   const navigate = useNavigate();
   useEffect(() => {
     if (auth) {

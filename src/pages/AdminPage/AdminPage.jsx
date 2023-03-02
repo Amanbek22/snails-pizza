@@ -4,13 +4,14 @@ import axios from "axios"
 import Card from "../../components/Card/Card";
 import css from "./AdminPage.module.css"
 import { Link } from "react-router-dom";
+import Api from "../../api/Api";
 
 function AdminPage() {
   const [pizzas, setPizzas] = useState([]);
   const [error, setError] = useState('');
 
   const getPizzas = async () => {
-    const res = await axios.get('https://605b21f027f0050017c063b9.mockapi.io/api/v3/pizza')
+    const res = await Api.getPizzas()
     if(res.status === 200) {
       setPizzas(res.data)
     } else {

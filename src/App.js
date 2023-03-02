@@ -26,7 +26,7 @@ function App() {
         <Route
           path="/login"
           element={
-            <PublicRoute auth={auth}>
+            <PublicRoute>
               <LoginPage setAuth={setAuth} />
             </PublicRoute>
           }
@@ -34,7 +34,7 @@ function App() {
         <Route
           path="/admin"
           element={
-            <PrivateRoute auth={auth}>
+            <PrivateRoute>
               <AdminPage />
             </PrivateRoute>
           }

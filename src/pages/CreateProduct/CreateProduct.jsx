@@ -1,5 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import Api from "../../api/Api";
 import Button from "../../components/Button/Button";
 import Title from "../../components/Title/Title";
 
@@ -10,16 +12,29 @@ function CreateProduct() {
   const [type, setType] = useState("");
   const [image, setImage] = useState("");
 
+  const [isSending, setSending] = useState(false);
+
+  const navigate = useNavigate();
+
   const submit = (e) => {
     e.preventDefault();
     // Send data to BE with axios request
-    axios.post("https://605b21f027f0050017c063b9.mockapi.io/api/v3/pizza", {
+    setSending(true);
+    Api.createProduct({
       name,
       price,
       description,
       type,
       image,
-    });
+    })
+      .then(() => {
+        alert("Ура. Вы создали пиццу");
+        navigate("/admin");
+      })
+      .catch((error) => {
+        console.error(error);
+        setSending(false);
+      });
   };
 
   return (
@@ -61,7 +76,10 @@ function CreateProduct() {
           placeholder="Фото"
           type="text"
         />
-        <Button title={"Добавить продукт"} />
+        <Button
+          disabled={isSending}
+          title={isSending ? "Продукт добавляеться..." : "Добавить продукт"}
+        />
       </form>
     </div>
   );
