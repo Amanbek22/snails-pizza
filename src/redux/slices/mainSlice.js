@@ -1,16 +1,27 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import Api from "../../api/Api";
+
+
+const getPizzas = async () => {
+    const res = await Api.getPizzas()
+    return res
+  }
+
+export const fetchPizzas = createAsyncThunk('main/fetchPizzas', getPizzas)
 
 const mainSlice = createSlice({
     name: "main",
     initialState: {
-      value: 999999999,
-      name: "Aman"
+        isLoading: true,
+        data: [],
+        error: null,
     },
-    reducers: {
-      incremented: (state) => {
-        state.value += 1;
-      },
-    },
+    reducers: {},
+    extraReducers: (builder) => {
+        builder.addCase(fetchPizzas.fulfilled, (state, action) => {
+            state.data = action.payload.data
+        })
+    }
   });
   
 export const { incremented } = mainSlice.actions;

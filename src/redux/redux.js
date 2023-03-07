@@ -10,3 +10,8 @@ const reducers = combineReducers({
 export const redux = configureStore({
   reducer: reducers,
 });
+
+redux.subscribe(() => {
+  const state = redux.getState();
+  localStorage.setItem('auth', state.auth.isAuth)
+})

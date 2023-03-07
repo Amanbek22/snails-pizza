@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import Header from "./components/Header/Header";
@@ -10,13 +9,6 @@ import HomePage from "./pages/HomePage/HomePage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 
 function App() {
-  // const a = JSON.parse(localStorage.getItem('auth'))
-  // const [auth, setAuth] = useState(a);
-
-  // useEffect(() => {
-  //   localStorage.setItem('auth', auth)
-  // }, [auth])
-
   return (
     <div className="App">
       <Header />
