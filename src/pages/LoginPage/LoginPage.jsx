@@ -1,17 +1,17 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { login as loginRedux } from "../../redux/slices/AuthSlice"
 
-function LoginPage({ setAuth }) {
+function LoginPage() {
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
 
-  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const submit = (e) => {
     e.preventDefault();
     if(login === 'admin' && password === 'admin') {
-        setAuth(true)
-        // navigate('/admin')
+        dispatch( loginRedux() )
     }
   };
   return (

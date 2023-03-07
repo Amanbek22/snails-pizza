@@ -10,12 +10,12 @@ import HomePage from "./pages/HomePage/HomePage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 
 function App() {
-  const a = JSON.parse(localStorage.getItem('auth'))
-  const [auth, setAuth] = useState(a);
+  // const a = JSON.parse(localStorage.getItem('auth'))
+  // const [auth, setAuth] = useState(a);
 
-  useEffect(() => {
-    localStorage.setItem('auth', auth)
-  }, [auth])
+  // useEffect(() => {
+  //   localStorage.setItem('auth', auth)
+  // }, [auth])
 
   return (
     <div className="App">
@@ -27,7 +27,7 @@ function App() {
           path="/login"
           element={
             <PublicRoute>
-              <LoginPage setAuth={setAuth} />
+              <LoginPage />
             </PublicRoute>
           }
         />
@@ -42,7 +42,7 @@ function App() {
         <Route
           path="/create-product"
           element={
-            <PrivateRoute auth={auth}>
+            <PrivateRoute>
               <CreateProduct />
             </PrivateRoute>
           }

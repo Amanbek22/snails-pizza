@@ -13,5 +13,5 @@ const authSlice = createSlice({
     },
   });
   
-export const { incremented } = authSlice.actions;
+export const { login } = authSlice.actions;
 export const authSliceReducer = authSlice.reducer; 
