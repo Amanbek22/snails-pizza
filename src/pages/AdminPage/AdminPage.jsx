@@ -5,6 +5,7 @@ import Card from "../../components/Card/Card";
 import css from "./AdminPage.module.css"
 import { Link } from "react-router-dom";
 import Api from "../../api/Api";
+import HomePage from "../HomePage/HomePage";
 
 function AdminPage() {
   const [pizzas, setPizzas] = useState([]);
