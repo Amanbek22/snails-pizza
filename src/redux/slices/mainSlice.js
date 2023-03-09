@@ -13,13 +13,17 @@ const mainSlice = createSlice({
     name: "main",
     initialState: {
         isLoading: true,
-        data: [],
+        pizzasData: [],
+        drinksData: [],
         error: null,
     },
     reducers: {},
     extraReducers: (builder) => {
         builder.addCase(fetchPizzas.fulfilled, (state, action) => {
-            state.data = action.payload.data
+          const pizzas = action.payload.data.filter((el) => el.type != 'drink')
+          const drinks = action.payload.data.filter((el) => el.type === 'drink')
+          state.pizzasData = pizzas
+          state.drinksData = drinks
         })
     }
   });
