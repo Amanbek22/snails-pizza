@@ -8,8 +8,8 @@ import { fetchPizzas } from "../../redux/slices/mainSlice";
 function HomePage() {
   const dispatch = useDispatch();
 
-  const {data, error, isLoading} = useSelector((state) => state.main)
-
+  const {pizzasData, drinksData, error, isLoading} = useSelector((state) => state.main)
+console.log(pizzasData);
   useEffect(() => {
     dispatch( fetchPizzas() )
   }, [])
@@ -23,12 +23,17 @@ function HomePage() {
         {/* Карточки */}
         <div className={css.cardsWrapper}>
           {
-            data.map((item) => <Card key={item.id} {...item} />)
+            pizzasData.map((item) => <Card key={item.id} {...item} />)
           }
         </div>
       </section>
       <section>
         <Title position="center" title="Напитки" />
+        <div className={css.cardsWrapper}>
+          {
+            drinksData.map((item) => <Card key={item.id} {...item} />)
+          }
+        </div>
       </section>
     </div>
   );
